@@ -50,6 +50,11 @@ class ProcessOperation(Operation.Operation):
         super(ProcessOperation, self).__init__(process_name, script_id, description)
         # if you have no parameters, just use this instead:
         #super(ProcessOperation, self).__init__(process_name, script_id)
+        
+        # we also have to define data members corresponding to the descriptions above:
+        self.point_example = (0.25, 0.25)
+        self.scalar_example = 0.3
+        self.integer_example = 1
 
     def process(self, data):
         """
