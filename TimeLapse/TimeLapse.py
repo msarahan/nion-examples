@@ -77,5 +77,4 @@ def perform_time_lapse(document_controller, data_group):
 # This is the main function that gets run when the user selects the menu item.
 def run_time_lapse(document_controller):
     data_group = document_controller.document_model.get_or_create_data_group(_("Time Lapse"))
-    t = threading.Thread(target=perform_time_lapse, args=(document_controller, data_group))
-    t.start()
+    threading.Thread(target=perform_time_lapse, args=(document_controller, data_group)).start()
