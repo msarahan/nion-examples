@@ -20,6 +20,15 @@ def document_controller_command(document_controller):
     logging.info("document model contains %s data items", len(document_model.data_items))
 
 
+def pane_command(document_controller):
+    data_item = document_controller.selected_data_item
+    logging.info("pane_command has been called.")
+    if data_item is not None:
+        logging.info("selected data item shape is %s", data_item.spatial_shape)
+    else:
+        logging.info("no data item is selected")
+
+
 # the build_menus function will be called whenever a new document window is created.
 # it will be passed the document_controller.
 def build_menus(document_controller):
@@ -37,6 +46,10 @@ def build_menus(document_controller):
     # the lambda function passes document controller from this scope.
     document_controller.example_menu.add_menu_item(_("Call Document Controller Command..."),
                                                    lambda: document_controller_command(document_controller))
+
+    # the lambda function passes document controller from this scope.
+    document_controller.example_menu.add_menu_item(_("Call Data Pane Command..."),
+                                                   lambda: pane_command(document_controller))
 
 
 # register the menu handler with the application.
