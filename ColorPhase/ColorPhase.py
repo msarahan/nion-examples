@@ -19,7 +19,7 @@ _ = gettext.gettext  # for translation
 #The operation class. Functions in it are called by Swift.
 class ColorPhaseOperation(Operation.Operation):
     def __init__(self):
-        super(ColorPhaseOperation, self).__init__(_("Show Color Phase"), "color-phase-operation")
+        super(ColorPhaseOperation, self).__init__(_("Color Phase"), "color-phase-operation")
 
     #This is called whenever Swift wants to update the Color Phase image
     def process(self, img):
@@ -75,10 +75,10 @@ class ColorPhaseOperation(Operation.Operation):
 #The following is code for making this into a process you can click on in the processing menu
  
 def processing_color_phase(document_controller):
-    document_controller.add_processing_operation_by_id("color-phase-operation", prefix=_("Showing Color Phase of "))
+    document_controller.add_processing_operation_by_id("color-phase-operation", prefix=_("Color Phase of "))
 
 def build_menus(document_controller): #makes the Show Color Phase Button
-    document_controller.processing_menu.add_menu_item(_("Show Color Phase"), lambda: processing_color_phase(document_controller))
+    document_controller.processing_menu.add_menu_item(_("Color Phase"), lambda: processing_color_phase(document_controller))
 
 Application.app.register_menu_handler(build_menus) #called on import to make the Show Color Phase Button
 
